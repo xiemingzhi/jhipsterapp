@@ -18,8 +18,10 @@ node {
         sh "./mvnw com.github.eirslett:frontend-maven-plugin:install-node-and-npm -DnodeVersion=v10.15.0 -DnpmVersion=6.4.1"
     }
 
-    stage('npm install').withEnv('PATH=$PATH:${WORKSPACE}/node') {
-        sh "./mvnw com.github.eirslett:frontend-maven-plugin:npm"
+    stage('npm install') {
+		withEnv('PATH=$PATH:${WORKSPACE}/node') {
+			sh "./mvnw com.github.eirslett:frontend-maven-plugin:npm"
+		}
     }
 
     stage('backend tests') {
