@@ -19,7 +19,7 @@ node {
     }
 
     stage('npm install') {
-		withEnv('PATH=$PATH:${WORKSPACE}/node') {
+		withEnv(["PATH=$PATH:${WORKSPACE}/node"]) {
 			sh "./mvnw com.github.eirslett:frontend-maven-plugin:npm"
 		}
     }
