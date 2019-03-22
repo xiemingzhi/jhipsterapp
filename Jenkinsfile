@@ -24,7 +24,7 @@ node {
 		//}
     }
 
-    /*stage('backend tests') {
+    /* stage('backend tests') {
         try {
             sh "./mvnw test"
         } catch(err) {
@@ -42,7 +42,7 @@ node {
         } finally {
             junit '**/target/test-results/TESTS-*.xml'
         }
-    }*/
+    } */
 
     stage('packaging') {
         sh "./mvnw verify -Pprod -DskipTests"
